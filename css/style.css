@@ -311,6 +311,8 @@ figure {
           font-family: "Playfair Display", Georgia, serif; }
         #colorlib-hero .flexslider .slider-text > .slider-text-inner h1 {
 		  color:#fffaf0;
+		      background-color: rgba(0,0,0,0.1);
+        
           margin-bottom: 20px;
           font-size: 60px;
           line-height: 1.3;
