@@ -1,832 +1,318 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>MrWD template</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<meta name="author" content="" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Waleed Akhtar — Senior Software Engineer</title>
+<meta name="description" content="Waleed Akhtar — Senior Software Engineer and full-stack developer (MERN). 5+ years building scalable web and mobile applications.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d1117; --surface:#161b22; --surface-2:#1b2230;
+    --border:#272e3a; --text:#e6edf3; --muted:#9aa5b1;
+    --accent:#5b8def; --accent-soft:rgba(91,141,239,.14); --mint:#57d9b0;
+    --maxw:1060px;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  *,*::before,*::after{box-sizing:inherit}
+  html{scroll-behavior:smooth; scroll-padding-top:80px}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    font-weight:300; line-height:1.65; -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit; text-decoration:none}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px}
+  section{padding:88px 0; border-top:1px solid var(--border)}
+  h2{font-weight:600; font-size:1.7rem; letter-spacing:-.01em; margin:0 0 8px}
+  .lead-note{color:var(--muted); font-weight:300; margin:0 0 36px; max-width:60ch}
 
-  <!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+  /* nav */
+  header.nav{position:sticky; top:0; z-index:50; background:rgba(13,17,23,.82);
+    backdrop-filter:blur(10px); border-bottom:1px solid var(--border);
+    padding-top:env(safe-area-inset-top,0px)}
+  .nav-inner{max-width:var(--maxw); margin:0 auto; padding:14px 24px;
+    display:flex; align-items:center; justify-content:space-between}
+  .brand{font-weight:600; letter-spacing:.02em; font-size:1.02rem}
+  .brand span{color:var(--accent)}
+  .nav-links{display:flex; gap:26px; align-items:center}
+  .nav-links a{color:var(--muted); font-size:.92rem; font-weight:400; transition:color .18s}
+  .nav-links a:hover{color:var(--text)}
+  .nav-cta{border:1px solid var(--accent); color:var(--accent);
+    padding:7px 16px; border-radius:6px; font-size:.9rem; font-weight:500; transition:.18s}
+  .nav-cta:hover{background:var(--accent); color:#fff}
+  .menu-btn{display:none; background:none; border:0; color:var(--text); cursor:pointer; padding:6px}
+  .menu-btn svg{width:26px; height:26px}
 
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="favicon.ico">
+  /* hero */
+  .hero{padding:104px 0 96px; border-top:0}
+  .eyebrow{display:inline-flex; align-items:center; gap:9px; color:var(--mint);
+    font-size:.86rem; font-weight:500; margin-bottom:22px}
+  .eyebrow .dot{width:8px; height:8px; border-radius:50%; background:var(--mint);
+    box-shadow:0 0 0 4px rgba(87,217,176,.16)}
+  .hero h1{font-size:clamp(2.2rem,5.2vw,3.6rem); line-height:1.08;
+    font-weight:600; letter-spacing:-.02em; margin:0 0 18px; max-width:16ch}
+  .hero h1 em{font-style:normal; color:var(--accent)}
+  .hero p.intro{font-size:1.12rem; color:var(--muted); font-weight:300;
+    max-width:60ch; margin:0 0 32px}
+  .hero-actions{display:flex; flex-wrap:wrap; gap:14px; align-items:center}
+  .btn{padding:11px 22px; border-radius:7px; font-weight:500; font-size:.95rem;
+    transition:.18s; border:1px solid transparent; cursor:pointer}
+  .btn-primary{background:var(--accent); color:#fff}
+  .btn-primary:hover{background:#4a7ce0}
+  .btn-ghost{border-color:var(--border); color:var(--text)}
+  .btn-ghost:hover{border-color:var(--accent); color:var(--accent)}
+  .hero-meta{margin-top:40px; display:flex; flex-wrap:wrap; gap:28px;
+    color:var(--muted); font-size:.92rem; font-weight:300}
+  .hero-meta b{color:var(--text); font-weight:600}
 
-	<link href= "https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
-	<link href= "https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700" rel="stylesheet">
-	
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<!-- Flexslider  -->
-	<link rel="stylesheet" href="css/flexslider.css">
-	<!-- Flaticons  -->
-	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-	<!-- Owl Carousel -->
-	<link rel="stylesheet" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/owl.theme.default.min.css">
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="css/style.css">
+  /* about */
+  .about-grid{display:grid; grid-template-columns:auto 1fr; gap:34px; align-items:start}
+  .mono{width:96px; height:96px; border-radius:18px;
+    background:linear-gradient(145deg,var(--surface-2),var(--surface));
+    border:1px solid var(--border); display:flex; align-items:center;
+    justify-content:center; font-size:2rem; font-weight:600; color:var(--accent); flex:none}
+  .about-grid p{margin:0 0 16px; color:#c7d0da; font-weight:300}
+  .about-grid p:first-child{margin-top:-4px}
 
-	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
+  /* skills */
+  .skill-block{display:grid; grid-template-columns:180px 1fr; gap:20px;
+    padding:20px 0; border-bottom:1px solid var(--border)}
+  .skill-block:last-child{border-bottom:0}
+  .skill-block h3{margin:0; font-size:.98rem; font-weight:600; color:var(--text)}
+  .tags{display:flex; flex-wrap:wrap; gap:9px}
+  .tag{background:var(--surface); border:1px solid var(--border);
+    padding:6px 13px; border-radius:20px; font-size:.86rem; font-weight:400; color:#cdd6e0}
+  .tag.soft{color:var(--muted); background:transparent}
 
-	</head>
-	<body>
-	<div id="colorlib-page">
-		<div class="container-wrap">
-		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-		<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
-			<div class="text-center">
-				<div class="author-img" style="background-image: url(images/about.jpg);"></div>
-				<h1 id="colorlib-logo"><a href="index.html">Waleed Akhtar</a></h1>
-				<span class="position"><a href="#">Student</a> of Computer Science </span>
-			</div>
-			<nav id="colorlib-main-menu" role="navigation" class="navbar">
-				<div id="navbar" class="collapse">
-					<ul>
-						<li class="active"><a href="#" data-nav-section="home">Home</a></li>
-						<li><a href="#" data-nav-section="about">About</a></li>
-						<!-- <li><a href="#" data-nav-section="services">Services</a></li> -->
-						<li><a href="#" data-nav-section="skills">Skills</a></li>
-						<li><a href="#" data-nav-section="education">Education</a></li>
-						<!-- <li><a href="#" data-nav-section="experience">Experience</a></li> -->
-						<!-- <li><a href="#" data-nav-section="work">Work</a></li> -->
-						<!-- <li><a href="#" data-nav-section="blog">Blog</a></li> -->
-						<li><a href="#" data-nav-section="contact">Contact</a></li>
-					</ul>
-				</div>
-			</nav>
+  /* experience */
+  .job{display:grid; grid-template-columns:200px 1fr; gap:24px}
+  .job .when{color:var(--muted); font-size:.92rem; font-weight:400}
+  .job .when .co{display:block; color:var(--text); font-weight:600; font-size:1rem; margin-top:4px}
+  .job h3{margin:0 0 12px; font-size:1.15rem; font-weight:600}
+  .job ul{margin:0; padding:0; list-style:none}
+  .job li{position:relative; padding-left:22px; margin-bottom:11px; color:#c7d0da; font-weight:300}
+  .job li::before{content:""; position:absolute; left:0; top:11px; width:7px; height:7px;
+    border-radius:50%; background:var(--accent)}
 
-			<div class="colorlib-footer">
-				<!--<p><small>&copy;  Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-<!-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> -->
-<!-- <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.  </span> <span>Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash.com</a></span></small></p> -->
-				<ul>
-					<li><a href="#"><i class="icon-facebook2"></i></a></li>
-					<li><a href="#"><i class="icon-twitter2"></i></a></li>
-					<li><a href="#"><i class="icon-instagram"></i></a></li>
-					<li><a href="#"><i class="icon-linkedin2"></i></a></li>
-				</ul>
-			</div>
+  /* projects */
+  .projects{display:grid; gap:18px}
+  .proj{background:var(--surface); border:1px solid var(--border); border-radius:12px;
+    padding:26px 28px; transition:border-color .2s, transform .2s}
+  .proj:hover{border-color:#39435400; border-color:rgba(91,141,239,.5); transform:translateY(-2px)}
+  .proj.feature{background:linear-gradient(160deg,var(--surface-2),var(--surface));
+    border-color:rgba(91,141,239,.3)}
+  .proj-top{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:10px}
+  .proj h3{margin:0; font-size:1.18rem; font-weight:600}
+  .proj .role{color:var(--mint); font-size:.85rem; font-weight:500}
+  .proj p{margin:12px 0 16px; color:#c2ccd6; font-weight:300}
+  .proj .stack{display:flex; flex-wrap:wrap; gap:8px}
+  .proj .stack span{font-size:.8rem; color:var(--muted); background:var(--bg);
+    border:1px solid var(--border); padding:4px 11px; border-radius:6px}
 
-		</aside>
+  /* education */
+  .edu{display:grid; grid-template-columns:200px 1fr; gap:24px}
+  .edu .when{color:var(--muted); font-size:.92rem}
+  .edu h3{margin:0; font-size:1.1rem; font-weight:600}
+  .edu p{margin:4px 0 0; color:var(--muted); font-weight:300}
 
-		<div id="colorlib-main">
-			<section id="colorlib-hero" class="js-fullheight" data-section="home">
-				<div class="flexslider js-fullheight">
-					<ul class="slides">
-				   	<li style="background-image: url(images/img_bg_1.jpg);">
-				   		<div class="overlay"></div>
-				   		<div class="container-fluid">
-				   			<div class="row">
-					   			<div class="col-md-6 col-md-offset-3 col-md-pull-3 col-sm-12 col-xs-12 js-fullheight slider-text">
-					   				<div class="slider-text-inner js-fullheight">
-					   					<div class="desc">
-						   					<h1>Hi! <br>I'm Waleed</h1>
-						   					<!-- <h2> </h2> -->
-												<!-- <p><a class="btn btn-primary btn-learn">Download CV <i class="icon-download4"></i></a></p> -->
-											</div>
-					   				</div>
-					   			</div>
-					   		</div>
-				   		</div>
-				   	</li>
-				   	<li style="background-image: url(images/img_bg_1.jpg);">
-				   		<div class="overlay"></div>
-				   		<div class="container-fluid">
-				   			<div class="row">
-					   			<div class="col-md-6 col-md-offset-3 col-md-pull-3 col-sm-12 col-xs-12 js-fullheight slider-text">
-					   				<div class="slider-text-inner">
-					   					<div class="desc">
-						   					<h1>I am a Bachelor's Student</h1>
-												<h4><b>at Pakistan Institute of Engineering & Applied Sciences</b> </h4>
-												<!-- <p><a class="btn btn-primary btn-learn">View Portfolio <i class="icon-briefcase3"></i></a></p> -->
-											</div>
-					   				</div>
-					   			</div>
-					   		</div>
-				   		</div>
-				   	</li>
-				  	</ul>
-			  	</div>
-			</section>
+  /* contact */
+  .contact-row{display:flex; flex-wrap:wrap; gap:16px; margin-top:26px}
+  .contact-card{display:flex; align-items:center; gap:13px; background:var(--surface);
+    border:1px solid var(--border); border-radius:10px; padding:16px 20px; transition:border-color .2s}
+  .contact-card:hover{border-color:var(--accent)}
+  .contact-card .ic{color:var(--accent); display:flex}
+  .contact-card .ic svg{width:20px; height:20px}
+  .contact-card small{display:block; color:var(--muted); font-size:.78rem}
+  .contact-card b{font-weight:500; font-size:.95rem}
 
-			<section class="colorlib-about" data-section="about">
-				<div class="colorlib-narrow-content">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
-								<div class="col-md-12">
-									<div class="about-desc">
-										<span class="heading-meta">About Us</span>
-										<h2 class="colorlib-heading">Who Am I?</h2>
-										<p><strong>Hi I'm Waleed Akhtar</strong> I am a one of those persons who beleive in making things happen. I loves to do things in a creative manner. I want to put my efforts in a usefull cause rather than just do things without having any purpose. And I found IT industry to the best op my interest.  .</p>
-										<p> I used to listen classical music to refresh my mind. Currently I am doing my bachelors and so far I have develop interest in many things. But here are some fields I found most interesting.</p>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-3 animate-box" data-animate-effect="fadeInLeft">
-									<div class="services color-1">
-										<span class="icon2"><i class="icon-bulb"></i></span>
-										<h3>Graphic Design</h3>
-									</div>
-								</div>
-								<div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
-									<div class="services color-2">
-										<span class="icon2"><i class="icon-globe-outline"></i></span>
-										<h3>Web Design</h3>
-									</div>
-								</div>
-								<div class="col-md-3 animate-box" data-animate-effect="fadeInTop">
-									<div class="services color-3">
-										<span class="icon2"><i class="icon-data"></i></span>
-										<h3>Software</h3>
-									</div>
-								</div>
-								<div class="col-md-3 animate-box" data-animate-effect="fadeInBottom">
-									<div class="services color-4">
-										<span class="icon2"><i class="icon-phone3"></i></span>
-										<h3>Application</h3>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-									<!-- <div class="hire">
-										<h2>I am happy to know you <br>that 300+ projects done sucessfully!</h2>
-										<a href="#" class="btn-hire">Hire me</a>
-									</div> -->
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+  footer{border-top:1px solid var(--border); padding:30px 0; text-align:center;
+    color:var(--muted); font-size:.86rem; font-weight:300}
 
+  @media(max-width:760px){
+    .nav-links{position:fixed; inset:0 0 auto 0; top:0; flex-direction:column;
+      background:var(--bg); padding:90px 24px 30px; gap:22px; transform:translateY(-120%);
+      transition:transform .3s; border-bottom:1px solid var(--border); align-items:flex-start}
+    .nav-links.open{transform:translateY(0)}
+    .menu-btn{display:block; z-index:60}
+    section{padding:64px 0}
+    .about-grid,.skill-block,.job,.edu{grid-template-columns:1fr; gap:14px}
+    .hero{padding:72px 0 64px}
+  }
+  @media(prefers-reduced-motion:reduce){*{transition:none!important; scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
 
-			
-<!-- 			<section class="colorlib-services" data-section="services">
- 				<div class="colorlib-narrow-content">
-					<div class="row">
-						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<span class="heading-meta">What I do?</span>
-							<h2 class="colorlib-heading">Here are some of my expertise</h2>
-						</div>
-					</div>
-					<div class="row row-pt-md">
-						<div class="col-md-4 text-center animate-box">
-							<div class="services color-1">
-								<span class="icon">
-									<i class="icon-bulb"></i>
-								</span>
-								<div class="desc">
-									<h3>Innovative Ideas</h3>
-									<p>Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 text-center animate-box">
-							<div class="services color-2">
-								<span class="icon">
-									<i class="icon-data"></i>
-								</span>
-								<div class="desc">
-									<h3>Software</h3>
-									<p>Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 text-center animate-box">
-							<div class="services color-3">
-								<span class="icon">
-									<i class="icon-phone3"></i>
-								</span>
-								<div class="desc">
-									<h3>Application</h3>
-									<p>Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 text-center animate-box">
-							<div class="services color-4">
-								<span class="icon">
-									<i class="icon-layers2"></i>
-								</span>
-								<div class="desc">
-									<h3>Graphic Design</h3>
-									<p>Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 text-center animate-box">
-							<div class="services color-5">
-								<span class="icon">
-									<i class="icon-data"></i>
-								</span>
-								<div class="desc">
-									<h3>Software</h3>
-									<p>Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 text-center animate-box">
-							<div class="services color-6">
-								<span class="icon">
-									<i class="icon-phone3"></i>
-								</span>
-								<div class="desc">
-									<h3>Application</h3>
-									<p>Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>  -->
-			
-			<div id="colorlib-counter" class="colorlib-counters" style="background-image: url(images/cover_bg_1.jpg);" data-stellar-background-ratio="0.5">
-				<!-- <div class="overlay"></div>
-				<div class="colorlib-narrow-content">
-					<div class="row">
-					</div>
-					<div class="row">
-					    <div class="col-md-3 text-center animate-box">
-							<span class="colorlib-counter js-counter" data-from="0" data-to="309" data-speed="5000" data-refresh-interval="50"></span>
-							<span class="colorlib-counter-label">Cups of coffee</span>
-						</div>
-						<div class="col-md-3 text-center animate-box">
-							<span class="colorlib-counter js-counter" data-from="0" data-to="356" data-speed="5000" data-refresh-interval="50"></span>
-							<span class="colorlib-counter-label">Projects</span>
-						</div>
-						<div class="col-md-3 text-center animate-box">
-							<span class="colorlib-counter js-counter" data-from="0" data-to="30" data-speed="5000" data-refresh-interval="50"></span>
-							<span class="colorlib-counter-label">Clients</span>
-						</div>
-						<div class="col-md-3 text-center animate-box">
-							<span class="colorlib-counter js-counter" data-from="0" data-to="10" data-speed="5000" data-refresh-interval="50"></span>
-							<span class="colorlib-counter-label">Partners</span> 
-						</div>
-					</div>
-				</div> -->
-			</div>
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">Waleed<span>.</span>Akhtar</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact" class="nav-cta">Get in touch</a>
+    </nav>
+  </div>
+</header>
 
-			<section class="colorlib-skills" data-section="skills">
-				<div class="colorlib-narrow-content">
-					<div class="row">
-						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<span class="heading-meta">My Specialty</span>
-							<h2 class="colorlib-heading animate-box">My Skills</h2>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-							<p>During my bachelores I have come across to many softwares and programming languages. And here some softwares and languages are listed with my experty level.</p>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="progress-wrap">
-								<h3>C\C++ </h3>
-								<div class="progress">
-								 	<div class="progress-bar color-1" role="progressbar" aria-valuenow="90"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:90%">
-								    <span>90%</span>
-								  	</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-							<div class="progress-wrap">
-								<h3>Photoshop</h3>
-								<div class="progress">
-								 	<div class="progress-bar color-2" role="progressbar" aria-valuenow="70"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:70%">
-								    <span>70%</span>
-								  	</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="progress-wrap">
-								<h3>HTML5</h3>
-								<div class="progress">
-								 	<div class="progress-bar color-3" role="progressbar" aria-valuenow="85"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:85%">
-								    <span>85%</span>
-								  	</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-							<div class="progress-wrap">
-								<h3>Java</h3>
-								<div class="progress">
-								 	<div class="progress-bar color-4" role="progressbar" aria-valuenow="85"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:85%">
-								    <span>85%</span>
-								  	</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="progress-wrap">
-								<h3>CSS3</h3>
-								<div class="progress">
-								 	<div class="progress-bar color-5" role="progressbar" aria-valuenow="90"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:90%">
-								    <span>90%</span>
-								  	</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-							<div class="progress-wrap">
-								<h3>Python</h3>
-								<div class="progress">
-								 	<div class="progress-bar color-6" role="progressbar" aria-valuenow="80"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:80%">
-								    <span>80%</span>
-								  	</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="progress-wrap">
-								<h3>Illustrator</h3>
-								<div class="progress">
-								 	<div class="progress-bar color-5" role="progressbar" aria-valuenow="80"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:80%">
-								    <span>80%</span>
-								  	</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-							<div class="progress-wrap">
-								<h3>Premiere Pro</h3>
-								<div class="progress">
-								 	<div class="progress-bar color-6" role="progressbar" aria-valuenow="75"
-								  	aria-valuemin="0" aria-valuemax="100" style="width:75%">
-								    <span>75%</span>
-								  	</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+<main id="top">
+  <div class="wrap">
+    <section class="hero" id="hero">
+      <span class="eyebrow"><span class="dot"></span>Open to full-stack &amp; MERN roles</span>
+      <h1>Senior software engineer building <em>full-stack products</em> end to end.</h1>
+      <p class="intro">5+ years shipping scalable web and mobile applications across the MERN stack — designing APIs, wiring up integrations, and keeping systems healthy in production.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View my work</a>
+        <a href="mailto:waleedakhtar484@gmail.com" class="btn btn-ghost">Email me</a>
+      </div>
+      <div class="hero-meta">
+        <div><b>5+ yrs</b> full-stack experience</div>
+        <div><b>MERN</b> Node · React · Next · Nest · TS</div>
+        <div><b>Lahore,</b> Pakistan</div>
+      </div>
+    </section>
+  </div>
 
-			<section class="colorlib-education" data-section="education">
-				<div class="colorlib-narrow-content">
-					<div class="row">
-						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<span class="heading-meta">Education</span>
-							<h2 class="colorlib-heading animate-box">Education</h2>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-							<div class="fancy-collapse-panel">
-								<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-<!--  									<div class="panel panel-default">
-									    <div class="panel-heading" role="tab" id="headingOne">
-									        <h4 class="panel-title">
-									            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Bachelora Degree Graphic Design
-									            </a>
-									        </h4>
-									    </div>
-									    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-									         <div class="panel-body">
-									            <div class="row">
-										      		<div class="col-md-6">
-										      			<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-										      		</div>
-										      		<div class="col-md-6">
-										      			<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-										      		</div>
-										      	</div>
-									         </div>
-									    </div>
-									</div> -->
-									<div class="panel panel-default">
-									    <div class="panel-heading" role="tab" id="headingTwo">
-									        <h4 class="panel-title">
-									            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Bachelors Degree of Computer and Information Sciences
-									            </a>
-									        </h4>
-									    </div>
-									    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-									        <div class="panel-body">
-									            <p>I am currently doing my bachelors from <strong>Pakistan Institute of Engineering and Applied Sciences (PIEAS)</strong>. I have completed two and half yesrs of my bachelors and expected to complete my degree in <strong>MAY 2021</strong>.</p>
-													<!-- <ul>
-														<li>Separated they live in Bookmarksgrove right</li>
-														<li>Separated they live in Bookmarksgrove right</li>
-													</ul> -->
-									        </div>
-									    </div>
-									</div>
-									<div class="panel panel-default">
-									    <div class="panel-heading" role="tab" id="headingThree">
-									        <h4 class="panel-title">
-									            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Intermediate degree of Information and Computer Science
-									            </a>
-									        </h4>
-									    </div>
-									    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-									        <div class="panel-body">
-									            <p>I have done my intermediate degree from <strong>Punjab Group of Colleges and Information Technology</strong>,<strong>campus 4</strong>. I have completed my degree with first class grades.</p>	
-									        </div>
-									    </div>
-									</div>
+  <div class="wrap"><section id="about">
+    <h2>About</h2>
+    <div class="about-grid">
+      <div class="mono">WA</div>
+      <div>
+        <p>I'm a senior software engineer and full-stack developer who likes making things work — and making them work well in production. Over the last five years I've built and shipped web and mobile applications across a range of domains, from a payments and infrastructure-analytics platform to HR software and local-marketing tools.</p>
+        <p>My core stack is MERN — Node.js, React, Next.js, NestJS, and TypeScript — with strong experience in REST and GraphQL API design, third-party integrations, and relational databases. I'm comfortable owning a feature from architecture and implementation through CI/CD, testing, deployment, and ongoing production support.</p>
+      </div>
+    </div>
+  </section></div>
 
-									<div class="panel panel-default">
-									    <div class="panel-heading" role="tab" id="headingFour">
-									        <h4 class="panel-title">
-									            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Matriculation in Computer Science
-									            </a>
-									        </h4>
-									    </div>
-									    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-									        <div class="panel-body">
-									            <p>I have completed my matriculation from <strong>Unique High School for Boys </strong>. I scored <strong>90% marks<strong>in my matric board exams.</p>	
-									        </div>
-									    </div>
-									</div>
+  <div class="wrap"><section id="skills">
+    <h2>Skills</h2>
+    <p class="lead-note">The tools I reach for day to day, grouped by where they sit in the stack.</p>
+    <div class="skill-block">
+      <h3>Languages</h3>
+      <div class="tags"><span class="tag">TypeScript</span><span class="tag">JavaScript</span><span class="tag">Ruby</span></div>
+    </div>
+    <div class="skill-block">
+      <h3>Frontend</h3>
+      <div class="tags"><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">Bootstrap</span></div>
+    </div>
+    <div class="skill-block">
+      <h3>Backend</h3>
+      <div class="tags"><span class="tag">Node.js</span><span class="tag">NestJS</span><span class="tag">Express</span><span class="tag">Ruby on Rails</span><span class="tag">REST APIs</span><span class="tag">GraphQL</span></div>
+    </div>
+    <div class="skill-block">
+      <h3>Databases &amp; ORMs</h3>
+      <div class="tags"><span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">TypeORM</span><span class="tag">Prisma</span></div>
+    </div>
+    <div class="skill-block">
+      <h3>Integrations</h3>
+      <div class="tags"><span class="tag">Third-party APIs</span><span class="tag">Webhooks</span><span class="tag">Payment gateways</span></div>
+    </div>
+    <div class="skill-block">
+      <h3>DevOps &amp; Data</h3>
+      <div class="tags"><span class="tag">CI/CD</span><span class="tag">GitHub Actions</span><span class="tag">Infrastructure setup</span><span class="tag">Apache Kafka (CDC)</span></div>
+    </div>
+    <div class="skill-block">
+      <h3>Working knowledge</h3>
+      <div class="tags"><span class="tag soft">React Native</span><span class="tag soft">Python</span><span class="tag soft">.NET</span></div>
+    </div>
+  </section></div>
 
-									<!-- <div class="panel panel-default">
-									    <div class="panel-heading" role="tab" id="headingFive">
-									        <h4 class="panel-title">
-									            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">High School Secondary Education
-									            </a>
-									        </h4>
-									    </div>
-									    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-									        <div class="panel-body">
-									            <p>Far far away, behind the word <strong>mountains</strong>, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>	
-									        </div>
-									    </div>
-									</div> -->
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+  <div class="wrap"><section id="experience">
+    <h2>Experience</h2>
+    <div class="job">
+      <div class="when">Oct 2021 – Present<span class="co">Codingcops</span></div>
+      <div>
+        <h3>Senior Software Engineer / Full-Stack Developer</h3>
+        <ul>
+          <li>Deliver scalable full-stack web and mobile applications for multiple clients using Node.js, NestJS, Next.js, React, and TypeScript.</li>
+          <li>Design and maintain REST and GraphQL APIs and third-party integrations, including data synchronization and webhook-driven workflows.</li>
+          <li>Model and query relational data with PostgreSQL and MySQL using TypeORM and Prisma.</li>
+          <li>Own features end to end — from architecture and implementation through CI/CD, testing, deployment, and production support.</li>
+        </ul>
+      </div>
+    </div>
+  </section></div>
 
-			<!-- <section class="colorlib-experience" data-section="experience">
-				<div class="colorlib-narrow-content">
-					<div class="row">
-						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<span class="heading-meta">Experience</span>
-							<h2 class="colorlib-heading animate-box">Work Experience</h2>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-				         <div class="timeline-centered">
-					         <article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
-					            <div class="timeline-entry-inner">
+  <div class="wrap"><section id="projects">
+    <h2>Selected projects</h2>
+    <p class="lead-note">A few products I've helped design and build over the last five years.</p>
+    <div class="projects">
+      <div class="proj feature">
+        <div class="proj-top"><h3>Atlas10</h3><span class="role">Core developer — built from scratch</span></div>
+        <p>A capital-lifecycle management and infrastructure-analytics platform for asphalt and concrete pavement assets. I built the product from the ground up with a React frontend and NestJS backend, set up the CI/CD pipelines and GitHub-based infrastructure, and implemented a change-data-capture pipeline using Apache Kafka.</p>
+        <div class="stack"><span>React</span><span>NestJS</span><span>Apache Kafka</span><span>CI/CD</span></div>
+      </div>
+      <div class="proj">
+        <div class="proj-top"><h3>Locable</h3><span class="role">Lead developer</span></div>
+        <p>A local-marketing and community-operations platform that automates cross-promotion and visibility for small businesses, Main Streets, chambers of commerce, and nonprofits. I led development, owning the React/JavaScript frontend and the Ruby backend.</p>
+        <div class="stack"><span>React</span><span>JavaScript</span><span>Ruby</span></div>
+      </div>
+      <div class="proj">
+        <div class="proj-top"><h3>Sapling HR</h3><span class="role">Feature development &amp; delivery</span></div>
+        <p>A cloud-based HRIS and people-operations platform that automates employee lifecycle workflows — onboarding, offboarding, and data management. I delivered new features, built end-to-end test coverage, and shipped releases across a React and Ruby stack using GraphQL APIs.</p>
+        <div class="stack"><span>React</span><span>Ruby</span><span>GraphQL</span></div>
+      </div>
+      <div class="proj">
+        <div class="proj-top"><h3>SMS Holdings</h3><span class="role">Mobile developer</span></div>
+        <p>A mobile app for a US-based holding company providing diversified business and facilities-management services. I built features in React Native and integrated third-party APIs.</p>
+        <div class="stack"><span>React Native</span><span>API integration</span></div>
+      </div>
+    </div>
+  </section></div>
 
-					               <div class="timeline-icon color-1">
-					                  <i class="icon-pen2"></i>
-					               </div>
+  <div class="wrap"><section id="education">
+    <h2>Education</h2>
+    <div class="edu">
+      <div class="when">Sep 2017 – Jul 2021</div>
+      <div>
+        <h3>BS, Computer Science</h3>
+        <p>Pakistan Institute of Engineering and Applied Sciences (PIEAS)</p>
+      </div>
+    </div>
+  </section></div>
 
-					               <div class="timeline-label">
-					                  <h2><a href="#">Full Stack Developer</a> <span>2017-2018</span></h2>
-					                  <p>Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.</p>
-					               </div>
-					            </div>
-					         </article>
+  <div class="wrap"><section id="contact">
+    <h2>Get in touch</h2>
+    <p class="lead-note">Open to full-stack and MERN roles. The fastest way to reach me is email.</p>
+    <div class="contact-row">
+      <a class="contact-card" href="mailto:waleedakhtar484@gmail.com">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+        <span><small>Email</small><b>waleedakhtar484@gmail.com</b></span>
+      </a>
+      <a class="contact-card" href="tel:+923355786231">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
+        <span><small>Phone</small><b>+92 335 5786231</b></span>
+      </a>
+      <a class="contact-card" href="https://linkedin.com/in/waleed-akhtar-47abb9183" target="_blank" rel="noopener">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></span>
+        <span><small>LinkedIn</small><b>waleed-akhtar</b></span>
+      </a>
+      <a class="contact-card" href="https://github.com/MrWD10" target="_blank" rel="noopener">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.4-2.2-.2-4.6-1.1-4.6-5a3.9 3.9 0 0 1 1-2.7 3.6 3.6 0 0 1 .1-2.6s.8-.3 2.7 1a9.3 9.3 0 0 1 4.9 0c1.9-1.3 2.7-1 2.7-1 .5 1.3.2 2.3.1 2.6a3.9 3.9 0 0 1 1 2.7c0 3.9-2.3 4.8-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg></span>
+        <span><small>GitHub</small><b>MrWD10</b></span>
+      </a>
+    </div>
+  </section></div>
+</main>
 
+<footer>© <span id="yr"></span> Waleed Akhtar · Built with vanilla HTML &amp; CSS</footer>
 
-					         <article class="timeline-entry animate-box" data-animate-effect="fadeInRight">
-					            <div class="timeline-entry-inner">
-					               <div class="timeline-icon color-2">
-					                  <i class="icon-pen2"></i>
-					               </div>
-					               <div class="timeline-label">
-					               	<h2><a href="#">Front End Developer at Google Company</a> <span>2017-2018</span></h2>
-					                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-					               </div>
-					            </div>
-					         </article>
-
-					         <article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
-					            <div class="timeline-entry-inner">
-					               <div class="timeline-icon color-3">
-					                  <i class="icon-pen2"></i>
-					               </div>
-					               <div class="timeline-label">
-					               	<h2><a href="#">System Analyst</a> <span>2017-2018</span></h2>
-					                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-					               </div>
-					            </div>
-					         </article>
-
-					         <article class="timeline-entry animate-box" data-animate-effect="fadeInTop">
-					            <div class="timeline-entry-inner">
-					               <div class="timeline-icon color-4">
-					                  <i class="icon-pen2"></i>
-					               </div>
-					               <div class="timeline-label">
-					               	<h2><a href="#">Creative Designer</a> <span>2017-2018</span></h2>
-					                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-					               </div>
-					            </div>
-					         </article>
-
-					         <article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
-					            <div class="timeline-entry-inner">
-					               <div class="timeline-icon color-5">
-					                  <i class="icon-pen2"></i>
-					               </div>
-					               <div class="timeline-label">
-					               	<h2><a href="#">UI/UX Designer at Envato</a> <span>2017-2018</span></h2>
-					                  <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-					               </div>
-					            </div>
-					         </article>
-
-					         <article class="timeline-entry begin animate-box" data-animate-effect="fadeInBottom">
-					            <div class="timeline-entry-inner">
-					               <div class="timeline-icon color-none">
-					               </div>
-					            </div>
-					         </article>
-					      </div>
-					   </div>
-				   </div>
-				</div>
-			</section>
-
- 			<section class="colorlib-work" data-section="work">
- 				<div class="colorlib-narrow-content">
-					<div class="row">
-						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<span class="heading-meta">My Work</span>
-							<h2 class="colorlib-heading animate-box">Recent Work</h2>
-						</div>
-					</div>
-					<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
-						<div class="col-md-12">
-							<p class="work-menu"><span><a href="#" class="active">Graphic Design</a></span> <span><a href="#">Web Design</a></span> <span><a href="#">Software</a></span> <span><a href="#">Apps</a></span></p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="project" style="background-image: url(images/img-1.jpg);">
-								<div class="desc">
-									<div class="con">
-										<h3><a href="work.html">Work 01</a></h3>
-										<span>Website</span>
-										<p class="icon">
-											<span><a href="#"><i class="icon-share3"></i></a></span>
-											<span><a href="#"><i class="icon-eye"></i> 100</a></span>
-											<span><a href="#"><i class="icon-heart"></i> 49</a></span>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-							<div class="project" style="background-image: url(images/img-2.jpg);">
-								<div class="desc">
-									<div class="con">
-										<h3><a href="work.html">Work 02</a></h3>
-										<span>Animation</span>
-										<p class="icon">
-											<span><a href="#"><i class="icon-share3"></i></a></span>
-											<span><a href="#"><i class="icon-eye"></i> 100</a></span>
-											<span><a href="#"><i class="icon-heart"></i> 49</a></span>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInTop">
-							<div class="project" style="background-image: url(images/img-3.jpg);">
-								<div class="desc">
-									<div class="con">
-										<h3><a href="work.html">Work 03</a></h3>
-										<span>Illustration</span>
-										<p class="icon">
-											<span><a href="#"><i class="icon-share3"></i></a></span>
-											<span><a href="#"><i class="icon-eye"></i> 100</a></span>
-											<span><a href="#"><i class="icon-heart"></i> 49</a></span>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInBottom">
-							<div class="project" style="background-image: url(images/img-4.jpg);">
-								<div class="desc">
-									<div class="con">
-										<h3><a href="work.html">Work 04</a></h3>
-										<span>Application</span>
-										<p class="icon">
-											<span><a href="#"><i class="icon-share3"></i></a></span>
-											<span><a href="#"><i class="icon-eye"></i> 100</a></span>
-											<span><a href="#"><i class="icon-heart"></i> 49</a></span>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="project" style="background-image: url(images/img-5.jpg);">
-								<div class="desc">
-									<div class="con">
-										<h3><a href="work.html">Work 05</a></h3>
-										<span>Graphic, Logo</span>
-										<p class="icon">
-											<span><a href="#"><i class="icon-share3"></i></a></span>
-											<span><a href="#"><i class="icon-eye"></i> 100</a></span>
-											<span><a href="#"><i class="icon-heart"></i> 49</a></span>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-							<div class="project" style="background-image: url(images/img-6.jpg);">
-								<div class="desc">
-									<div class="con">
-										<h3><a href="work.html">Work 06</a></h3>
-										<span>Web Design</span>
-										<p class="icon">
-											<span><a href="#"><i class="icon-share3"></i></a></span>
-											<span><a href="#"><i class="icon-eye"></i> 100</a></span>
-											<span><a href="#"><i class="icon-heart"></i> 49</a></span>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12 animate-box">
-							<p><a href="#" class="btn btn-primary btn-lg btn-load-more">Load more <i class="icon-reload"></i></a></p>
-						</div>
-					</div>
-				</div>
-			</section>-->
-
- 			<!-- <section class="colorlib-blog" data-section="blog"> 
- 				<div class="colorlib-narrow-content">
-					<div class="row">
-						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<span class="heading-meta">Read</span>
-							<h2 class="colorlib-heading">Recent Blog</h2>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="blog-entry">
-								<a href="blog.html" class="blog-img"><img src="images/blog-1.jpg" class="img-responsive" alt="HTML5 Bootstrap Template by colorlib.com"></a>
-								<div class="desc">
-									<span><small>April 14, 2018 </small> | <small> Web Design </small> | <small> <i class="icon-bubble3"></i> 4</small></span>
-									<h3><a href="blog.html">Renovating National Gallery</a></h3>
-									<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInRight">
-							<div class="blog-entry">
-								<a href="blog.html" class="blog-img"><img src="images/blog-2.jpg" class="img-responsive" alt="HTML5 Bootstrap Template by colorlib.com"></a>
-								<div class="desc">
-									<span><small>April 14, 2018 </small> | <small> Web Design </small> | <small> <i class="icon-bubble3"></i> 4</small></span>
-									<h3><a href="blog.html">Wordpress for a Beginner</a></h3>
-									<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="blog-entry">
-								<a href="blog.html" class="blog-img"><img src="images/blog-3.jpg" class="img-responsive" alt="HTML5 Bootstrap Template by colorlib.com"></a>
-								<div class="desc">
-									<span><small>April 14, 2018 </small> | <small> Inspiration </small> | <small> <i class="icon-bubble3"></i> 4</small></span>
-									<h3><a href="blog.html">Make website from scratch</a></h3>
-									<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12 animate-box">
-							<p><a href="#" class="btn btn-primary btn-lg btn-load-more">Load more <i class="icon-reload"></i></a></p>
-						</div>
-					</div>
-				</div>
-			</section>
- -->
-			<section class="colorlib-contact" data-section="contact">
-				<div class="colorlib-narrow-content">
-					<div class="row">
-						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<span class="heading-meta">Get in Touch</span>
-							<h2 class="colorlib-heading">Contact</h2>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-5">
-							<div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
-								<div class="colorlib-icon">
-									<i class="icon-globe-outline"></i>
-								</div>
-								<div class="colorlib-text">
-									<p><a href="#">waleedakhtar484@gmail.com</a></p>
-								</div>
-							</div>
-
-							<div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
-								<div class="colorlib-icon">
-									<i class="icon-map"></i>
-								</div>
-								<div class="colorlib-text">
-									<p>House no. 59 Gani <br>Street no. 55 Haji park <br> Rajghar, Lahore</p>
-								</div>
-							</div>
-
-							<div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
-								<div class="colorlib-icon">
-									<i class="icon-phone"></i>
-								</div>
-								<div class="colorlib-text">
-									<p><a href="tel://">+923 355 786231
-									</a></p>
-								</div>
-							</div>
-						</div>
-						<!-- <div class="col-md-7 col-md-push-1">
-							<div class="row">
-								<div class="col-md-10 col-md-offset-1 col-md-pull-1 animate-box" data-animate-effect="fadeInRight">
-									<form action="">
-										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Name">
-										</div>
-										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Email">
-										</div>
-										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Subject">
-										</div>
-										<div class="form-group">
-											<textarea name="" id="message" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
-										</div>
-										<div class="form-group">
-											<input type="submit" class="btn btn-primary btn-send-message" value="Send Message">
-										</div>
-									</form>
-								</div>
-								
-							</div>
-						</div> -->
-					</div>
-				</div>
-			</section>
-
-		</div><!-- end:colorlib-main -->
-	</div><!-- end:container-wrap -->
-	</div><!-- end:colorlib-page -->
-
-	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<!-- Flexslider -->
-	<script src="js/jquery.flexslider-min.js"></script>
-	<!-- Owl carousel -->
-	<script src="js/owl.carousel.min.js"></script>
-	<!-- Counters -->
-	<script src="js/jquery.countTo.js"></script>
-	
-	
-	<!-- MAIN JS -->
-	<script src="js/main.js"></script>
-
-	</body>
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const btn = document.getElementById('menuBtn');
+  const links = document.getElementById('navLinks');
+  btn.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+</script>
+</body>
 </html>
-
